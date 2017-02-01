@@ -1,0 +1,40 @@
+package chapter16eclipseliang;
+
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ContentDisplay;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+
+public class CheckBoxDemo extends Application {
+
+	@Override
+	public void start(Stage primaryStage) {
+		// TODO Auto-generated method stub
+
+		CheckBox chkUS = new CheckBox("US");
+		chkUS.setGraphic(new ImageView("image/usIcon.gif"));
+		chkUS.setTextFill(Color.GREEN);
+		chkUS.setContentDisplay(ContentDisplay.LEFT);
+		chkUS.setStyle("-fx-border-color: black");
+		chkUS.setSelected(true);
+		chkUS.setPadding(new Insets(5, 5, 5, 5));
+
+		Pane pane = new Pane();
+		pane.getChildren().addAll(chkUS);
+
+		Scene scene = new Scene(pane);
+		primaryStage.setTitle("CheckBox Demo");
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+
+	public static void main(String[] args) {
+		Application.launch(args);
+	}
+
+}

@@ -1,0 +1,10 @@
+package chapter14_eclipse_liang_examples;
+
+public class MultipleStageDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

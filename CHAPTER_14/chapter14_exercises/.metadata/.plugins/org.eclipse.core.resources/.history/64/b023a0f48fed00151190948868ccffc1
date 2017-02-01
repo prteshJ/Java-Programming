@@ -1,0 +1,33 @@
+package solutions_chapter14_exercises;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.shape.Line;
+import javafx.stage.Stage;
+
+public class Exercise14_15 extends Application {
+
+	@Override
+	public void start(Stage primaryStage) {
+		Pane stopSignContainer = new StackPane();
+		
+		double startX = 50, startY = 50, endX = 100, endY = 50; 
+		Line firstSide = new Line(startX, startY, endX, endY);
+		Line secondSide = new Line(endX, endY, endX * Math.cos(Math.toDegrees(135)), startY * Math.sin(Math.toDegrees(135)));
+		stopSignContainer.getChildren().addAll(firstSide, secondSide);
+		
+		Scene stopSign = new Scene(stopSignContainer);
+		primaryStage.setTitle("Exercise14_15");
+		primaryStage.setScene(stopSign);
+		primaryStage.show();
+	}
+
+	/**
+	 * Main method needed only if poor IDE support
+	 */
+	public static void main(String[] args) {
+		Application.launch(args);
+	}
+}

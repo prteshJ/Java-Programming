@@ -1,0 +1,64 @@
+It is important to note that a generic class is shared by all its instances regardless of its actual
+concrete type. Suppose list1 and list2 are created as follows:
+ArrayList<String> list1 = new ArrayList<>(); ArrayList<Integer> list2 = new ArrayList<>();
+
+Although ArrayList<String> and ArrayList<Integer> are two types at compile time, only one ArrayList class is loaded into the JVM at runtime. 
+list1 and list2 are both instances of ArrayList, so the following statements display true:
+System.out.println(list1 instanceof ArrayList); System.out.println(list2 instanceof ArrayList);
+However, the expression list1 instanceof ArrayList<String> is wrong. Since ArrayList<String> is not stored as a separate class in the JVM, 
+using it at runtime makes no sense.
+
+
+Because generic types are erased at runtime, there are certain restrictions on how generic types can be used. Here are some of the 
+restrictions:
+
+Restriction 1: Cannot Use new E()
+You cannot create an instance using a generic type parameter. For example, the following
+statement is wrong:
+E object = new E();
+Thereasonisthatnew E()isexecutedatruntime,butthegenerictypeEisnotavailable
+at runtime.
+
+
+Restriction 2: Cannot Use new E[]
+You cannot create an array using a generic type parameter. For example, the following
+statement is wrong:
+E[] elements = new E[capacity];
+You can circumvent this limitation by creating an array of the Object type and then cast-
+ing it to E[], as follows:
+E[] elements = (E[])new Object[capacity];
+However, casting to (E[]) causes an unchecked compile warning. The warning occurs because the compiler is not certain that casting will succeed 
+at runtime. For example, if E is String and new Object[] is an array of Integer objects, (String[])(new Object[]) will cause a 
+ClassCastException. This type of compile warning is a limi- tation of Java generics and is unavoidable.
+Generic array creation using a generic class is not allowed, either. For example, the fol- lowing code is wrong:
+ArrayList<String>[] list = new ArrayList<String>[10]; You can use the following code to circumvent this restriction:
+ArrayList<String>[] list = (ArrayList<String>[])new ArrayList[10];
+However, you will still get a compile warning.
+
+
+Restriction 3: A Generic Type Parameter of a Class Is Not Allowed in a Static Context
+Since all instances of a generic class have the same runtime class, the static variables and methods of a generic class are shared by all its 
+instances. Therefore, it is illegal to refer to   (/******** PG 752 *************/) a generic type parameter for a class in a static method, 
+field, or initializer. For example, the following code is illegal:
+		public class Test<E> {
+			public static void m(E o1) { 
+							// Illegal 
+			}
+
+			public static E o1; // Illegal
+
+			static {
+				E o2; // Illegal
+			}
+		}
+
+Restriction 4: Exception Classes Cannot Be Generic
+A generic class may not extend java.lang.Throwable, so the following class declara- tion would be illegal:
+public class MyException<T> extends Exception { }
+Why? If it were allowed, you would have a catch clause for MyException<T> as follows:
+try { ...
+}
+catch (MyException<T> ex) {
+... }
+The JVM has to check the exception thrown from the try clause to see if it matches the type specified in a catch clause. This is impossible, 
+because the type information is not present at runtime.

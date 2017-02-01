@@ -1,0 +1,5 @@
+package chapter16eclipseliang;
+
+public class CheckBoxDemo_Version1 extends  ButtonDemo{
+	
+}

@@ -1,0 +1,57 @@
+Stage ---<Composition>--- Scene ---<Composition>--- Parent
+          <  owns a  >             <   owns a  >
+
+The Parent class is the class that models all nodes that can contain other nodes. 
+When a node can contain other nodes, they refer to the container node as a "parent" and the nodes inside the parent as "children". 
+Note however, that this does not automatically mean that these nodes have an inheritance relationship.
+
+RELATIONSHIPS AMONGST STAGE, SCENE & PARENT ARE COMPOSITION & EXCLUSIVE:
+A Scene can only belong to one Stage, and a Parent can only belong to one Scene.
+ In other words, if you have some kind of Parent, you can only add that Parent to one specific Scene. 
+ You can't add it to two different Scenes.
+
+NODES:
+All Nodes are represented by Node class.
+Nodes are basically visual elements that appear on the UI.
+
+They can include shapes, images, buttons, text fields, check boxes, containers that contain other nodes, etc. 
+The diagram shows 3 children of Node (Parent, Shape, and ImageView), but there are others (the diagram only shows those that are used in the textbook).
+
+Shape nodes are used for drawing 2-dimensional shapes (there is also a Shape3d child class of Node which can be used to draw 3-dimensional shapes). 
+The ImageView type of node is used to add images to the UI. 
+There's also a MediaView child class of Node for adding multi-media to your UI.
+
+PARENT:
+The Parent class, as mentioned earlier, models any node that can contain another node. 
+The Parent class actually has three children not shown in the diagram: Group, Region, and WebView. 
+Region is actually the parent of the classes shown in the diagram under Parent: Control and Pane.
+
+CONTROL:
+The Control class is the parent class for all UI controls. These include Buttons, Text Fields, Labels, Radio Buttons, Check Boxes, various List controls, and many others.
+
+PANE:
+The Pane class models containers that are used to lay out other nodes. For example, if you wanted to have 3 buttons in a horizontal row, you could create one of the Pane classes that supports horizontal layout and add your 3 buttons to it, then add that horizontal pane to your Scene.
+
+SOME NOTES ON INHERTIANCE;
+The inheritance relationship means that many different members are inherited by child classes. 
+When looking at a component to see what you can do with it, don't forget to examine the members that are inherited from parent classes. For example, all nodes can be made visible or invisible, so the Node class contains the setVisible() method that turns the visibility of a node to visible or invisible. 
+Button is a grand-child of node, so it inherits the setVisibile() method from the Node class. 
+There are a number of methods like this that are inherited from a child's parents and grand-parents.
+
+NOTE ON RELATIONSHIP BETWEEN PANE & NODE:
+ Pane objects contain Node objects. 
+ Pane classes are used to lay out other nodes, so they will obviously contain other nodes. 
+ This is a composition relationship because a single Node is exlusive to a single Pane: a node can only belong to one pane.
+ In other words, if you create a Button and add it to a pane, you can't add that same button to another pane
+
+ APPLICATION CLASS:
+ JavaFX program extends the Application class.
+
+The Application class models the entire application. Node in the API documentation that the application life cycle lists the start() method as executing after the constructor and the application's init() method. All of your Applications must override the start() method: this is where you put the code to set up and lay out your UI, and perform any other startup tasks needed.
+
+The start() method always includes a Stage parameter, which by default is called primaryStage (of course, you can change this name if you wish). This Stage parameter is automatically created and passed into the start() method by JVM. The Stage parameter represents the main stage on which you will place your Scene object.
+
+If you look at the main() method in the sample program, you'll notice that it calls the launch() method, which is passed the optional array of command-line arguments that is passed into the main() method. The args array would normally contain the name of the application you want to launch. The launch() method belongs to the Application class and does exactly what it sounds like: it launches, or starts, the application. In NetBeans you can leave the main() method alone.
+
+
+

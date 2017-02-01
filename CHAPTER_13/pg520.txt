@@ -1,0 +1,14 @@
+public static void eat(Edible stuff) { 
+	stuff.howToEat();
+}
+
+	SHOULD BE	
+
+public static String eat(Edible stuff) { 
+	stuff.howToEat();
+}
+
+	AND INSIDE MAIN ON pg519
+
+	eat(stuff) SHOULD BE System.out.println(eat(stuff));
+

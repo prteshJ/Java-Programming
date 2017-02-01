@@ -1,0 +1,21 @@
+package liangChapter25_Examples;
+
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
+
+public class BTView extends Pane{
+	private BST<Integer> tree = new BST<>();
+	private double radius = 15; // Tree node radius
+	private double vGap = 50; // Gap between two levels in a tree
+	
+	BTView(BST<Integer> tree) {
+		this.tree = tree;
+		setStatus("Tree is empty");
+	}
+	
+	public void setStatus(String msg) {
+		getChildren().add(new Text(20, 20, msg));
+	}
+	
+	
+}

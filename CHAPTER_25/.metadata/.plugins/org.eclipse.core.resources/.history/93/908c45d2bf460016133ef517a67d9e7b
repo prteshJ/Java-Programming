@@ -1,0 +1,16 @@
+package liangChapter25_Examples;
+
+import javafx.application.Application;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
+public class BSTAnimation extends Application{
+	@Override // Override the start method in the Application class
+	public void start(Stage primaryStage) {
+		BST<Integer> tree = new BST<>(); // Create a tree
+		
+		BorderPane pane = new BorderPane();
+		BTView view = new BTView(tree); // Create a BTView
+		pane.setCenter(view);
+	}
+}

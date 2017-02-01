@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.Iterable"/>
+<fullyQualifiedTypeName name="E"/>
+<fullyQualifiedTypeName name="java.lang.IndexOutOfBoundsException"/>
+<fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="liangChapter24_Examples.MyList"/>
+<fullyQualifiedTypeName name="liangChapter24_Examples.MyArrayList"/>
+<fullyQualifiedTypeName name="liangChapter24_Examples.MyAbstractList"/>
+<fullyQualifiedTypeName name="liangChapter24_Examples.MyLinkedList.Node"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="liangChapter24_Examples.GenericStack"/>
+<fullyQualifiedTypeName name="liangChapter24_Examples.GenericQueue"/>
+<fullyQualifiedTypeName name="javax.xml.bind.annotation.adapters.HexBinaryAdapter"/>
+<fullyQualifiedTypeName name="liangChapter24_Examples.Heap"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="javax.print.event.PrintJobAttributeEvent"/>
+<fullyQualifiedTypeName name="java.lang.Comparable"/>
+<fullyQualifiedTypeName name="Patient"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="liangChapter24_Examples.TestPriorityQueue.Patient"/>
+<fullyQualifiedTypeName name="liangChapter24_Examples.MyPriorityQueue"/>
+</qualifiedTypeNameHistroy>

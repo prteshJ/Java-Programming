@@ -1,0 +1,29 @@
+package chapter14_eclipse_liang_examples;
+
+import javafx.application.Application;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+
+public class ShowGridPane extends Application {
+
+	@Override // Override the start method in the Application class
+	public void start(Stage primaryStage) {
+		// Create a pane and set its properties
+		GridPane pane = new GridPane();
+		pane.setAlignment(Pos.CENTER);
+		
+		Scene scene = new Scene(pane);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+	}
+	
+	/**
+	 * The main method is only needed for the IDE with limited
+	 * JavaFX support. Not needed for running from the command line.
+	 */
+	public static void main(String[] args) {
+		Application.launch(args);
+	}
+}

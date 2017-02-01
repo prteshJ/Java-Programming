@@ -1,0 +1,21 @@
+package liangChapter26_Examples;
+
+public class AVLTree<E extends Comparable<E>> extends BST<E> {
+	/** Create an empty AVL tree */
+	public AVLTree() {
+	}
+	
+	/** Create an AVL tree from an array of objects */
+	public AVLTree(E[] objects) {
+		super(objects);
+	}
+	
+	/** AVLTreeNode is TreeNode plus height */
+	protected static class AVLTreeNode<E extends Comparable<E>> extends BST.TreeNode<E> {
+		protected int height = 0; // New data field
+		
+		public AVLTreeNode(E e) {
+			super(e);
+		}
+	}
+}

@@ -1,0 +1,76 @@
+package solutions_chapter14_exercises;
+
+import java.util.ArrayList;
+
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
+import javafx.stage.Stage;
+
+public class Exercise14_14 extends Application {
+
+	private static double START_X = 30;
+	private static double START_Y = 20;
+	private static double WIDTH = 150;
+	private static double HEIGHT = 90;
+	private static double OFFSET = 30;
+	@Override
+	public void start(Stage primaryStage) {
+		Pane rectanguloidContainer = new Pane();
+		rectanguloidContainer.setPadding(new Insets(5, 10, 10, 10));
+		
+		ArrayList<Shape> rectanguloidComponents = new ArrayList<>();
+		
+		Rectangle outerRectangle = new Rectangle(START_X, START_Y, WIDTH, HEIGHT);
+		outerRectangle.setFill(Color.TRANSPARENT);
+		outerRectangle.setStroke(Color.BLACK);
+		rectanguloidComponents.add(outerRectangle);
+		
+		Rectangle innerRectangle = new Rectangle(START_X - OFFSET, START_Y + OFFSET, WIDTH, HEIGHT);
+		innerRectangle.setFill(Color.TRANSPARENT);
+		innerRectangle.setStroke(Color.BLACK);
+		rectanguloidComponents.add(innerRectangle);
+		
+		Line outerTopLeftEdge = new Line(START_X, START_Y, START_X - OFFSET, START_Y + OFFSET);
+		outerTopLeftEdge.setFill(Color.TRANSPARENT);
+		outerTopLeftEdge.setStroke(Color.BLACK);
+		rectanguloidComponents.add(outerTopLeftEdge);
+		
+		Line outerBottomLeftEdge = new Line(START_X, START_Y + HEIGHT, START_X - OFFSET, START_Y + HEIGHT + OFFSET);
+		outerBottomLeftEdge.setFill(Color.TRANSPARENT);
+		outerBottomLeftEdge.setStroke(Color.BLACK);
+		rectanguloidComponents.add(outerBottomLeftEdge);
+		
+		Line outerTopRightEdge = new Line(START_X + WIDTH, START_Y, START_X + WIDTH - OFFSET, START_Y + OFFSET);
+		outerTopRightEdge.setFill(Color.TRANSPARENT);
+		outerTopRightEdge.setStroke(Color.BLACK);
+		rectanguloidComponents.add(outerTopRightEdge);
+		
+		Line outerBottomRightEdge = new Line(START_X + WIDTH, START_Y + HEIGHT, START_X + WIDTH - OFFSET, START_Y + HEIGHT + OFFSET);
+		outerBottomRightEdge.setFill(Color.TRANSPARENT);
+		outerBottomRightEdge.setStroke(Color.BLACK);
+		rectanguloidComponents.add(outerBottomRightEdge);
+		
+		rectanguloidContainer.getChildren().addAll(rectanguloidComponents);
+		
+		/**
+		 * Setting up rectanguloid on Canvas
+		 */
+		Scene rectanguloid = new Scene(rectanguloidContainer);
+		primaryStage.setTitle("Exercise14_14");
+		primaryStage.setScene(rectanguloid);
+		primaryStage.show();
+	}
+
+	/**
+	 * Main method needed only if poor IDE support
+	 */
+	public static void main(String[] args) {
+		Application.launch(args);
+	}
+}

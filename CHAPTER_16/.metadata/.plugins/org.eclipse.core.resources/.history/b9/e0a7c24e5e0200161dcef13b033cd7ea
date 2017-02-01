@@ -1,0 +1,22 @@
+package chapter16eclipseliang;
+
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+public class MediaDemo extends Application{
+	public static String MEDIA_URL = 
+			"http://cs.armstrong.edu/liang/common/sample.mp4";
+
+	@Override // Override the start method in the Application class
+	public void start(Stage primaryStage) {
+		
+	}
+	
+	/**
+	 * Main method
+	 * Only needed if IDE has poor JavaFX support
+	 */
+	public static void main(String[] args) {
+		Application.launch(args);
+	}
+}

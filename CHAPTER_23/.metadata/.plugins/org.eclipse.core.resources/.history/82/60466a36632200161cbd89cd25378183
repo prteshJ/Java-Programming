@@ -1,0 +1,72 @@
+package liangChapter23_examples;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+/**
+ *  Liang's example has 800004 which is incorrect to 
+ *  write 2 million integers and instead should be
+ *  8000004
+ * @author PriteshJ
+ *
+ */
+public class CreateLargeFile {
+	public static void main(String[] args) throws Exception {
+		DataOutputStream output = new DataOutputStream(new BufferedOutputStream(new FileOutputStream("largedata.dat")));
+		
+		/*******************************************************
+		 * Here, writeInt method writes 4 bytes at a time
+		 * with high order byte first. 
+		 * It increments counter by 4 each time.
+		 * So effectively it writes 8000004/4 i.e. approximately
+		 * 2 million (2000000) integer values to the file 
+		********************************************************/
+		for(int i = 0; i < 8000004; i++)
+			output.writeInt((int) (Math.random() * 1000000));
+		
+		output.close();
+		
+		// Display first 100 numbers
+		DataInputStream input = new DataInputStream(new BufferedInputStream(new FileInputStream("largedata.dat")));
+		for(int i = 0; i < 100; i++) 
+			System.out.print(input.readInt() + " ");
+		
+		input.close();
+	}
+	
+	/** Sort original file into sorted segments */
+	private static int initializeSegments(int segmentSize, String originalFile, String f1) throws Exception {
+		int[] list = new int[segmentSize];
+		DataInputStream input = new DataInputStream(new BufferedInputStream(new FileInputStream(originalFile)));
+		DataOutputStream output = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(f1)));
+		
+		int numberOfSegments = 0;
+		while(input.available() > 0) {
+			numberOfSegments++;
+			int i = 0;
+			
+			/**
+			 * Both conditions needed in case reached end of input
+			 * but i is much lesser than segment size
+			 */
+			for(; input.available() > 0 && i < segmentSize; i++) {
+				list[i] = input.readInt();
+			}
+			
+			// Sort an array list[0..i-1]
+			/**
+			 *  Sorts from 0 to i exclusive (until i-1)
+			 */
+			java.util.Arrays.sort(list, 0, i);
+			
+			// Write the array to f1.dat
+			for(int j = 0; j < i; j++)
+				output.writeInt(list[j]);
+		}
+		return numberOfSegments;
+	}
+}

@@ -1,0 +1,21 @@
+// PG 457
+// Examples 12.8 
+//  import java.lang.*;
+
+// our main class becomes a file but the main method is still found
+//public class Test
+//{
+ // public static void main(String[] args)
+ // {
+	//	System.out.println(1 / 0); =>  Arithmetic Exception
+   /* int[] list = new int[5];  => ArrayIndexOutOfBoundsException
+	System.out.println(list[5]); */
+   /* String s = "abc"; => StringIndexOutOfBoundsException
+	System.out.println(s.charAt(3)); */
+   /* Object o = new Object(); => ClassCastException
+      String d = (String)o; */
+   /* Object o = null; => NullPointerException
+    System.out.println(o.toString()); */
+   /* System.out.println(1.0 / 0); => Infinity */
+  //}
+//}

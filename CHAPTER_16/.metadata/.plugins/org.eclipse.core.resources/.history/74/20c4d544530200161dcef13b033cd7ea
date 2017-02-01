@@ -1,0 +1,35 @@
+package chapter16eclipseliang;
+
+import javafx.application.Application;
+import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+
+public class TicTacToe extends Application{
+	// Indicate which player has a turn, initially it is the X player
+	private char whoseTurn = 'X';
+	
+	// Create and initialize cell
+	
+	// Create and initialize a status label
+	private Label lblStatus = new Label("X's turn to play");
+	
+	@Override // Override the start method in the Application class
+	public void start(Stage primaryStage) {
+		// Pane to hold cell
+		GridPane pane = new GridPane();
+		
+		BorderPane pane = new BorderPane();
+	}
+	
+	
+
+	/**
+	 * Main method
+	 * Only needed if IDE has poor JavaFX support
+	 */
+	public static void main(String[] args) {
+		Application.launch(args);
+	}
+}

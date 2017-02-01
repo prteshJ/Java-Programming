@@ -1,0 +1,5 @@
+package liangChapter27_Examples;
+
+public interface MyMap {
+
+}

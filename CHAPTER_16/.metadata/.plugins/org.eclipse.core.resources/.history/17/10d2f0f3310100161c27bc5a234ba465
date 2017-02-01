@@ -1,0 +1,30 @@
+package chapter16eclipseliang;
+
+import javafx.application.Application;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+
+public class ListViewDemo extends Application{
+	
+	// Declare an array of Strings for flag titles
+	private String[] flagTitles = { "Canada", "China", "Denmark",
+			"France", "Germany", "India", "Norway", "United Kingdom",
+	"United States of America"};
+	
+	// Declare an ImageView array for the national flags of 9 countries
+	private ImageView[] flagImage = { new ImageView("image/ca.gif"),
+			new ImageView("image/china.gif"),
+			new ImageView("image/denmark.gif"),
+			new ImageView("image/fr.gif"),
+			new ImageView("image/germany.gif"),
+			new ImageView("image/india.gif"),
+			new ImageView("image/norway.gif"),
+			new ImageView("image/uk.gif"), new ImageView("image/us.gif")
+	};
+
+	@Override
+	public void start(Stage primaryStage) {
+	
+	}
+
+}

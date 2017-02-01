@@ -1,0 +1,49 @@
+package solutions_chapter14_exercises;
+
+import javafx.application.Application;
+import javafx.collections.ObservableList;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Polygon;
+import javafx.stage.Stage;
+
+public class Exercise14_15 extends Application {
+
+	private static final double WIDTH  = 200;
+	private static final double HEIGHT = 200;
+	@Override
+	public void start(Stage primaryStage) {
+		Pane stopSignContainer = new StackPane();
+
+		double CENTERX = WIDTH  / 2;
+		double CENTERY = HEIGHT / 2;
+		double RADIUS = Math.min(WIDTH, HEIGHT) * 0.4;
+		
+		Polygon octagon = new Polygon();
+		stopSignContainer.getChildren().add(octagon);
+		octagon.setFill(Color.WHITE);
+		octagon.setStroke(Color.BLACK);
+		ObservableList<Double> octagonPoints = octagon.getPoints();
+		
+		for(int point = 0; point < 8; point++) {
+			octagonPoints.add(CENTERX + RADIUS * Math.cos((2 * point * Math.PI) / 8));
+			octagonPoints.add(CENTERY + RADIUS * Math.sin((2 * point * Math.PI) / 8));
+		}
+		
+		octagon.setRotate(45);
+		
+		Scene stopSign = new Scene(stopSignContainer, 200, 200);
+		primaryStage.setTitle("Exercise14_15");
+		primaryStage.setScene(stopSign);
+		primaryStage.show();
+	}
+
+	/**
+	 * Main method needed only if poor IDE support
+	 */
+	public static void main(String[] args) {
+		Application.launch(args);
+	}
+}

@@ -1,0 +1,15 @@
+package chapter16eclipseliang;
+
+import javafx.application.Application;
+
+public class TextFieldDemo extends RadioButtonDemo {
+	
+	
+	/**
+	 * Main method
+	 * Only needed if IDE has poor JavaFX support
+	 */
+	public static void main(String[] args) {
+		Application.launch(args);
+	}
+}

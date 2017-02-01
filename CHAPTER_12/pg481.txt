@@ -1,0 +1,24 @@
+/**************************************************************
+********* I CREATED THIS COMMENT ******************************
+java ReplaceText QuotientWithIf.java pg481.txt if iFnOt_hEhE
+******** ONLY PART FROM BELOW THIS COMMENT WAS WRITTEN ********
+******** IT STARTS WITH import java.util.Scanner **************
+**************************************************************/
+import java.util.Scanner;  
+
+public class QuotientWithIf {
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    
+    // Prompt the user to enter two integers
+    System.out.print("Enter two integers: ");
+    int number1 = input.nextInt();
+    int number2 = input.nextInt();
+    
+    iFnOt_hEhE (number2 != 0)
+      System.out.println(number1 + " / " + number2 + " is " +
+        (number1 / number2));
+    else
+      System.out.println("Divisor cannot be zero ");
+  }
+}

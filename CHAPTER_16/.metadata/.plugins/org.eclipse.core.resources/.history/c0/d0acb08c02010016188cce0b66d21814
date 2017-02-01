@@ -1,0 +1,10 @@
+package chapter16eclipseliang;
+
+public class TextFieldDemo extends RadioButtonDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

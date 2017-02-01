@@ -1,0 +1,12 @@
+package liangChapter26_Examples;
+
+public class AVLTree<E extends Comparable<E>> extends BST<E> {
+	/** Create an empty AVL tree */
+	public AVLTree() {
+	}
+	
+	/** Create an AVL tree from an array of objects */
+	public AVLTree(E[] objects) {
+		super(objects);
+	}
+}

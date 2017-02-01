@@ -1,0 +1,80 @@
+JavaFX basics:
+
+FROM javaFX 8 Documentation
+
+STAGE:
+
+public class Stage (CONCRETE CLASS)
+
+Stage owns a Scene (UML Composition relationship)
+
+SCENE:
+
+public class Scene (CONCRETE CLASS)
+
+Scene owns a Parent (UML Composition relationship)
+
+PARENT:
+
+public abstract class Parent (abstract SUBCLASS OF abstract SUPERCLASS Node)
+extends Node
+
+Parent is the base class for all nodes that have children in the scene graph.
+
+There are two direct concrete Parent subclasses
+
+Group effects and transforms to be applied to a collection of child nodes.
+Region class for nodes that can be styled with CSS and layout children.
+
+NODE:
+
+public abstract class Node (abstract class)
+
+Base class for scene graph nodes. 
+A scene graph is a set of tree data structures where every item has zero or one parent, and each item is either a "leaf" with 
+zero sub-items or a "branch" with zero or more sub-items.
+Each item in the scene graph is called a Node. 
+Branch nodes are of type Parent, whose concrete subclasses are Group, Region, and Control, or subclasses thereof.
+Leaf nodes are classes such as Rectangle, Text, ImageView, MediaView, or other such leaf classes which cannot have children. 
+Only a single node within each scene graph tree will have no parent, which is referred to as the "root" node.
+
+CONTROL :
+
+public abstract class Control
+extends Region ----> public class Region
+extends Parent 
+
+Control is a direct subclass of class Region is a direct subclass of abstract class Parent.
+
+(Region : Region is the base class for all JavaFX Node-based UI Controls, and all layout containers. It is a resizable Parent node which  can be styled from CSS.)
+
+(Control: Base class for all user interface controls. A "Control" is a node in the scene graph which can be manipulated by the user. 
+Controls provide additional variables and behaviors beyond those of Node to support common user interactions in a manner which is consistent and predictable for the user.)
+
+PANE :
+
+public class Pane
+extends Region ---> public class Region
+extends Parent
+
+A Pane owns (contains) a Node (UML Composition relationship)
+
+Base class for layout panes which need to expose the children list as public so that users of the subclass can freely add/remove children.
+
+IMAGEVIEW :
+
+public class ImageView
+extends Node
+
+The ImageView is a Node used for painting images loaded with Image class.
+This class allows resizing the displayed image (with or without preserving the original aspect ratio) and specifying a viewport into the source image for restricting the pixels displayed by this ImageView.
+
+SHAPE :
+
+public abstract class Shape
+extends Node
+
+The Shape class provides definitions of common properties for objects that represent some form of geometric shape.
+
+DONE WITH PG 539 DIAGRAM 
+

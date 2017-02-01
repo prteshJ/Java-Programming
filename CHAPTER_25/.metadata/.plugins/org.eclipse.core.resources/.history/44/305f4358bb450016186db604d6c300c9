@@ -1,0 +1,73 @@
+package liangChapter25_Examples;
+
+import java.util.Iterator;
+
+public class BST<E extends Comparable<E>> extends AbstractTree<E> {
+	protected TreeNode<E> root;
+	protected int size = 0;
+	
+	/** Create a default binary search tree */
+	public BST() {
+	}
+	
+	/**  Create a binary search tree from an array of objects */
+	public BST(E[] objects) {
+		for(int i = 0; i < objects.length; i++) 
+			insert(objects[i]);
+	}
+	
+	@Override /** Return true if the element is in the tree */
+	public boolean search(E e) {
+		TreeNode<E> current = root; // Start from the root
+		
+		while(current != null) {
+			if(e.compareTo(current.element) < 0) {
+				current = current.left;
+			}
+			else if(e.compareTo(current.element) > 0) {
+				current = current.right;
+			}
+			else // element matches current.element
+				return true; // Element is found
+		}
+		
+		return false;
+	}
+
+	@Override /** Insert element e into the binary search tree.
+	* Return if the element is inserted successfully */
+	public boolean insert(E e) {
+		return false;
+	}
+
+	@Override
+	public boolean delete(E e) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+	/** This inner class is static, because it does not access
+	any instance members defined in its outer class */
+	public static class TreeNode<E extends Comparable<E>> {
+		protected E element;
+		protected TreeNode<E> left;
+		protected TreeNode<E> right;
+		
+		public TreeNode(E e) {
+			element = e;
+		}
+	}
+	
+	@Override
+	public int getSize() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Iterator<E> iterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

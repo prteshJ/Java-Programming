@@ -1,0 +1,21 @@
+package chapter16eclipseliang;
+
+import javafx.geometry.Insets;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
+
+public class RadioButtonDemo extends CheckBoxDemo {
+
+	@Override // Override the getPane() method in the super class
+	protected BorderPane getPane() {
+		BorderPane pane = super.getPane();
+		
+		VBox paneForRadioButtons = new VBox(20);
+		paneForRadioButtons.setPadding(new Insets(5, 5, 5, 5));
+		paneForRadioButtons.setStyle("-fx-border-color: green");
+		
+		pane.getChildren().add(paneForRadioButtons);
+		return pane;
+	}
+	
+}

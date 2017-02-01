@@ -1,0 +1,81 @@
+package solutions_chapter14_exercises;
+
+import java.util.ArrayList;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Shape;
+import javafx.stage.Stage;
+
+public class Exercise14_20 extends Application{
+
+	private static final double PANE_WIDTH  = 200;
+	private static final double PANE_HEIGHT = 200;
+	private static final double OFFSET = 10;
+	@Override
+	public void start(Stage primaryStage) {	
+		Pane arrowContainer = new Pane();
+		
+		Exercise14_20.drawArrowLine(Math.random() * ((PANE_WIDTH - OFFSET*2) - (OFFSET*4)), Math.random()*((PANE_HEIGHT - OFFSET*2) -(OFFSET*4)), Math.random() * ((PANE_WIDTH - OFFSET*2) - (OFFSET*4)), Math.random() * ((PANE_HEIGHT - OFFSET*2) - (OFFSET*4)), arrowContainer);
+	
+		Scene arrowScene = new Scene(arrowContainer, PANE_WIDTH, PANE_HEIGHT);
+		primaryStage.setTitle("Exercise14_20");
+		primaryStage.setScene(arrowScene);
+		primaryStage.show();
+	}
+
+	public static void drawArrowLine(double startX, double startY, double endX, double endY, Pane pane) {
+		
+		Line arrow = new Line();
+		ArrayList<Shape> arrowComponents = new ArrayList<>();
+		double smallerX = startX < endX? startX : endX;
+		double largerX  = startX < endX? endX : startX; 
+	    double smallerY = startY > endY? endY : startY; 
+		double largerY = startY > endY? startY : endY;
+		
+		double length = Math.sqrt(Math.abs(((smallerX-largerX)*(smallerX-largerX)) + ((smallerY-largerY) * (smallerY-largerY))));
+		
+		System.out.println(length + " LENGTH of ARROW");
+		
+		arrow.setStartX(smallerX);
+		arrow.setStartY(largerY);
+		arrow.setEndX(largerX);
+		arrow.setEndY(smallerY);
+		arrowComponents.add(arrow);
+		
+		System.out.println("\n" + arrow.getEndX() + " STARTING X for ARROW");
+		System.out.println(arrow.getEndY() + " STARTING Y for ARROW");
+		
+			
+		Line arrowLeftPart = new Line();
+		arrowLeftPart.setStartX(arrow.getEndX());
+		arrowLeftPart.setStartY(arrow.getEndY());
+		arrowLeftPart.setEndX(arrowLeftPart.getStartX() - 5);
+		arrowLeftPart.setEndY(arrowLeftPart.getStartY() + 5);
+		arrowComponents.add(arrowLeftPart); 
+		
+		System.out.println("\n" + arrowLeftPart.getEndX() + " <---- ENDX for arrowLeftPart");
+		System.out.println(arrowLeftPart.getEndY() + " <---- ENDY for arrowLeftPart");
+		
+		Line arrowRightPart = new Line();
+		arrowRightPart.setStartX(arrowLeftPart.getStartX());
+		arrowRightPart.setStartY(arrowLeftPart.getStartY());
+		arrowRightPart.setEndX(arrowRightPart.getStartX() + 5);
+		arrowRightPart.setEndY(arrowRightPart.getStartY() + 5);
+		arrowComponents.add(arrowRightPart);
+			
+		System.out.println("\n" + arrowRightPart.getEndX() + " <---- ENDX for arrowRightPart");
+		System.out.println(arrowRightPart.getEndY() + " <---- ENDY for arrowRightPart");
+		
+		pane.getChildren().addAll(arrowComponents);
+	}
+	
+	/**
+	 * Main method needed only if poor IDE support
+	 */
+	public static void main(String[] args) {
+		Application.launch(args);
+	}
+}
